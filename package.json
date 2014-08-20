@@ -1,0 +1,19 @@
+{
+  "name": "angular-password",
+  "version": "0.0.0",
+  "description": "The most performant AngularJS directive for matching two password input fields ",
+  "main": "angular-password.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gdi2290/angular-password.git"
+  },
+  "author": "gdi2290 <github@gdi2290.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gdi2290/angular-password/issues"
+  },
+  "homepage": "https://github.com/gdi2290/angular-password"
+}
