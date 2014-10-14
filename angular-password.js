@@ -11,9 +11,11 @@
       ngModel.$parsers.push(function(value) {
         if (value === otherPasswordModel.$viewValue) {
           ngModel.$setValidity('passwordMatch', true);
-          return value;
         }
-        ngModel.$setValidity('passwordMatch', false);
+        else{
+          ngModel.$setValidity('passwordMatch', false);
+        }
+        return value;
       });
 
       otherPasswordModel.$parsers.push(function(value) {
