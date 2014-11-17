@@ -7,21 +7,23 @@
       var formController = ctrls[1];
       var ngModel = ctrls[0];
       var otherPasswordModel = formController[attrs.matchPassword];
-
-      ngModel.$parsers.push(function(value) {
-        if (value === otherPasswordModel.$viewValue) {
-          ngModel.$setValidity('passwordMatch', true);
-        }
-        else{
-          ngModel.$setValidity('passwordMatch', false);
-        }
-        return value;
-      });
-
-      otherPasswordModel.$parsers.push(function(value) {
-        ngModel.$setValidity('passwordMatch', value === ngModel.$viewValue);
-        return value;
-      });
+  
+      // if ng1.3+
+      if (ngModel.$validators) {
+        ngModel.$validators.passwordMatch = function(modelValue, viewValue) {
+         return (modelValue === otherPassword.$modelValue);
+        };
+      } else {
+        ngModel.$parsers.push(function(value) {
+          ngModel.$setValidity('passwordMatch', value === otherPasswordModel.$viewValue);
+          return value;
+        });
+  
+        otherPasswordModel.$parsers.push(function(value) {
+          ngModel.$setValidity('passwordMatch', value === ngModel.$viewValue);
+          return value;
+        });
+      }
 
     }
     var controllers = ['^ngModel', '^form'];
