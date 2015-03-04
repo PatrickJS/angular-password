@@ -1,9 +1,21 @@
 {
   "name": "angular-password",
   "main": "angular-password.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/gdi2290/angular-password",
   "description": "The most performant AngularJS directive for matching two password input fields ",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "password",
+    "match password",
+    "confirm password",
+    "passwords",
+    "angular-password",
+    "ngPassword",
+    "gdi2290",
+    "PatrickJS"
+  ],
   "authors": [
     "gdi2290 <github@gdi2290.com>"
   ],
