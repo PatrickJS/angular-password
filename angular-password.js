@@ -1,6 +1,7 @@
-!function(window, angular, undefined) {
+!function(angular, undefined) {
   'use strict';
-  angular.module('angular.password', [])
+  
+  angular.module('ngPassword', [])
   .directive('matchPassword', function() {
 
     function link(scope, element, attrs, ctrls) {
@@ -11,7 +12,7 @@
       // if ng1.3+
       if (ngModel.$validators) {
         ngModel.$validators.passwordMatch = function(modelValue, viewValue) {
-         return (modelValue === otherPassword.$modelValue);
+         return (modelValue === otherPasswordModel.$modelValue);
         };
       } else {
         ngModel.$parsers.push(function(value) {
@@ -34,5 +35,11 @@
       link: link
     }; // end return
   });
-
-}(window, window.angular);
+  
+  angular.module('angular.password', ['ngPassword']);
+  angular.module('angular-password', ['ngPassword']);
+  
+  if (typeof module === 'object' && typeof define !== 'function') {
+    module.exports = angular.module('ngPassword');
+  }
+}(angular);
