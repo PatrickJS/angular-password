@@ -1,6 +1,6 @@
 {
   "name": "angular-password",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "The most performant AngularJS directive for matching two password input fields ",
   "main": "angular-password.js",
   "keywords": [
