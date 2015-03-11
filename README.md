@@ -3,6 +3,14 @@ angular-password
 
 The most performant AngularJS directive for matching two password input fields. I use angular's built in $parsers rather than relying on a $watch
 
+Installation
+
+`bower install angular-password`
+
+or
+
+`npm install angular-password`
+
 Inject angular-password into your module
 
 ```
