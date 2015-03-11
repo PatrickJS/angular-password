@@ -33,3 +33,5 @@ with ngMessages
   <button>Submit</button>
 </form>
 ```
+
+Licensing information can be found [here](LICENSE.md)
