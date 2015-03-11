@@ -13,8 +13,8 @@ or
 
 Inject angular-password into your module
 
-```
-angular.module('yourmodulename', ['ngPassword'])
+```javascript
+angular.module('yourmodulename', ['ngPassword']);
 ```
 
 Simple example.
