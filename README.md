@@ -3,13 +3,19 @@ angular-password
 
 The most performant AngularJS directive for matching two password input fields. I use angular's built in $parsers rather than relying on a $watch
 
-simple example.
+Inject angular-password into your module
+
+```
+angular.module('yourmodulename', ['ngPassword'])
+```
+
+Simple example.
 
 ```htnl
 <input name="newPassword" ng-model="password.new">
 <input match-password="newPassword" name="confirmPassword" ng-model="password.confirm">
 ```
-with ngMessages
+With ngMessages
 ```html
 <form name="profileForm" autocomplete="off" novalidate="" ng-submit="submit(password)">
   <fieldset>
