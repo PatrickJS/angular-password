@@ -34,4 +34,4 @@ with ngMessages
 </form>
 ```
 
-Licensing information can be found [here](LICENSE.md)
+Licensing information can be found [here](LICENSE)
