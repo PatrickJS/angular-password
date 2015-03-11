@@ -19,7 +19,7 @@ angular.module('yourmodulename', ['ngPassword'])
 
 Simple example.
 
-```htnl
+```html
 <input name="newPassword" ng-model="password.new">
 <input match-password="newPassword" name="confirmPassword" ng-model="password.confirm">
 ```
