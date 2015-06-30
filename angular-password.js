@@ -11,20 +11,19 @@
       // if ng1.3+
       if (ngModel.$validators) {
         ngModel.$validators.passwordMatch = function(modelValue) {
-         return (modelValue === otherPasswordModel.$modelValue);
+          return (modelValue === otherPasswordModel.$modelValue);
         };
       } else {
         ngModel.$parsers.push(function(value) {
           ngModel.$setValidity('passwordMatch', value === otherPasswordModel.$viewValue);
           return value;
         });
-
-        otherPasswordModel.$parsers.push(function(value) {
-          ngModel.$setValidity('passwordMatch', value === ngModel.$viewValue);
-          return value;
-        });
       }
 
+      otherPasswordModel.$parsers.push(function(value) {
+        ngModel.$setValidity('passwordMatch', value === ngModel.$viewValue);
+        return value;
+      });
     }
 
     var controllers = ['^ngModel', '^form'];
