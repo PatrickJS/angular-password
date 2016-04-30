@@ -2,7 +2,7 @@ describe('angular-password', function() {
 
   var $scope, form;
 
-  beforeEach(module('angular-password'));
+  beforeEach(module('ngPassword'));
 
   beforeEach(inject(function($compile, $rootScope) {
     $scope = $rootScope;
