@@ -1,4 +1,4 @@
-!function(angular, undefined) {
+(function() {
   'use strict';
 
   function $Password() {
@@ -8,20 +8,28 @@
       var ngModel = ctrls[0];
       var otherPasswordModel = formController[attrs.matchPassword];
 
+      var getMatchValue = function() {
+        return otherPasswordModel.$viewValue;
+      };
+
+      scope.$watch(getMatchValue, function() {
+        ngModel.$$parseAndValidate();
+      });
+
       // if ng1.3+
       if (ngModel.$validators) {
         ngModel.$validators.passwordMatch = function(modelValue) {
-          return (modelValue === otherPasswordModel.$modelValue);
+          return (!modelValue && !otherPasswordModel.$modelValue) || (modelValue === otherPasswordModel.$modelValue);
         };
       } else {
         ngModel.$parsers.push(function(value) {
-          ngModel.$setValidity('passwordMatch', value === otherPasswordModel.$viewValue);
+          ngModel.$setValidity('passwordMatch', (!value && !otherPasswordModel.$viewValue) || value === otherPasswordModel.$viewValue);
           return value;
         });
       }
 
       otherPasswordModel.$parsers.push(function(value) {
-        ngModel.$setValidity('passwordMatch', value === ngModel.$viewValue);
+        ngModel.$setValidity('passwordMatch', (!value && !ngModel.$viewValue) || value === ngModel.$viewValue);
         return value;
       });
     }
@@ -43,4 +51,4 @@
   if (typeof module === 'object' && typeof define !== 'function') {
     module.exports = angular.module('ngPassword');
   }
-}(angular);
+})();
