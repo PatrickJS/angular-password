@@ -6,22 +6,22 @@ var gulp = require('gulp'),
 
 
 gulp.task('jshint', function() {
-  gulp.src('./angular-password.js')
+  return gulp.src('./angular-password.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'), {verbose: true})
     .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('test', ['jshint'], function(done) {
+gulp.task('test', gulp.series('jshint', function(done) {
   new KarmaServer({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, done).start();
-});
+}));
 
-gulp.task('dist', ['test'], function() {
-  gulp.src('./angular-password.js')
+gulp.task('dist', gulp.series('test', function() {
+  return gulp.src('./angular-password.js')
     .pipe(uglify())
     .pipe(rename('angular-password.min.js'))
     .pipe(gulp.dest('./'));
-});
+}));
